@@ -10,10 +10,8 @@ with open(py_bank_csv_path, 'r') as csvfile:
     # Split the data on commas
     csvreader = csv.reader(csvfile, delimiter=',')
 
-    #skip the header
-    header = csvreader.__next__
-
-    next(csvreader)
+    #skip the header and store it
+    header = next(csvreader)
 
     #initialize variables
     sum = 0
@@ -31,5 +29,3 @@ with open(py_bank_csv_path, 'r') as csvfile:
     print(num_months)
     print(sum)
     print(changes)
-
-    print("Hello github desktop")
