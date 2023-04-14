@@ -16,7 +16,6 @@ with open(py_bank_csv_path, 'r') as csvfile:
 
     #initialize variables
     sum_profit_losses = 0
-    num_months = 0
     profit_losses = []
     current_profit_loss = 0
 
@@ -24,9 +23,11 @@ with open(py_bank_csv_path, 'r') as csvfile:
     for row in csvreader:
         current_profit_loss = int(row[1])
         sum_profit_losses += current_profit_loss
-        num_months += 1
         profit_losses.append([row[0],current_profit_loss])
 
+    #Find number of months
+    num_months = len(profit_losses)
+    
     #initialize difference list
     differences = []
 
@@ -54,13 +55,17 @@ with open(py_bank_csv_path, 'r') as csvfile:
     #find the average difference
     average_diff = sum_differences/len(differences)
 
-    
-    
-    #print statments to test the correctness of the values
-    print("Financial Analysis")
-    print("----------------------------")
-    print(f"Total Months: {num_months}")
-    print(f"Total: ${sum_profit_losses}")
-    print(f"Average Change: ${round(average_diff,2)}")
-    print(f"Greatest Increase in Profits: {month_max_diff} (${max_diff})")
-    print(f"Greatest Decrease in Profits: {month_min_diff} (${min_diff})")
+#Create the output string    
+output_string = f'''\
+Financial Analysis
+----------------------------
+Total Months:  {num_months}
+Total: ${sum_profit_losses}
+Average Change: ${round(average_diff,2)}
+Greatest Increase in Profits: {month_max_diff} (${max_diff})
+Greatest Decrease in Profits: {month_min_diff} (${min_diff})\
+'''
+
+#print the output to the terminal
+print(output_string)
+
