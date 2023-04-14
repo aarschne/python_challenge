@@ -34,18 +34,28 @@ with open(py_bank_csv_path, 'r') as csvfile:
     for i in range(len(profit_losses)-1):
         differences.append(profit_losses[i+1]-profit_losses[i])
     
-    #initialize the sum of the differences to find the average
+    #initialize the sum of the differences and the extreme values
     sum_differences = 0
+    max_diff = differences[0]
+    min_diff = differences[0]
 
-    #find the sum
+    #find the sum and the extreme values
     for diff in differences:
         sum_differences += diff
+        if diff < min_diff:
+            min_diff = diff
+        if diff > max_diff:
+            max_diff = diff
     
     #find the average difference
     average_diff = sum_differences/len(differences)
+
+    
     
     #print statments to test the correctness of the values
     print(round(average_diff,2))
     print(num_months)
     print(sum_profit_losses)
+    print(max_diff)
+    print(min_diff)
     
