@@ -57,11 +57,10 @@ with open(py_bank_csv_path, 'r') as csvfile:
     
     
     #print statments to test the correctness of the values
-    print(round(average_diff,2))
-    print(num_months)
-    print(sum_profit_losses)
-    print(month_max_diff)
-    print(max_diff)
-    print(month_min_diff)
-    print(min_diff)
-    
+    print("Financial Analysis")
+    print("----------------------------")
+    print(f"Total Months: {num_months}")
+    print(f"Total: ${sum_profit_losses}")
+    print(f"Average Change: ${round(average_diff,2)}")
+    print(f"Greatest Increase in Profits: {month_max_diff} (${max_diff})")
+    print(f"Greatest Decrease in Profits: {month_min_diff} (${min_diff})")
