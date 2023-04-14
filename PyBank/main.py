@@ -27,7 +27,7 @@ with open(py_bank_csv_path, 'r') as csvfile:
 
     #Find number of months
     num_months = len(profit_losses)
-    
+
     #initialize difference list
     differences = []
 
@@ -69,3 +69,9 @@ Greatest Decrease in Profits: {month_min_diff} (${min_diff})\
 #print the output to the terminal
 print(output_string)
 
+#financial analysis path creation
+analysis_path = os.path.join(os.path.dirname(__file__), 'Financial_analysis.txt')
+
+#output the string to a text file
+with open(analysis_path, 'w') as f:
+    f.write(output_string)
