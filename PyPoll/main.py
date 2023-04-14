@@ -53,7 +53,7 @@ for candidate in candidate_dict:
     elif candidate_dict[candidate][0] > candidate_dict[winner][0]:
         winner = candidate
 
-#add in final part of output string
+#add in winner to output string
 output_string += f'''\
 \n-------------------------
 Winner: {winner}
