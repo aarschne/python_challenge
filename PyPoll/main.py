@@ -23,6 +23,7 @@ with open(election_data_path, 'r') as csvfile:
 
         #try to find if the current candidate is in dictionary. If not, add them
         if current_candidate not in candidate_dict:
+        #initialize dictionary with current candidate as key and 1 as vote count, 0 as percent
             candidate_dict[current_candidate] = [1,0]
         #add to the votes a candidate already has
         else:
@@ -50,6 +51,7 @@ for candidate in candidate_dict:
     #find winner: start by assuming it's first person, then update as you go along
     if winner == "":
         winner = candidate
+    #update winner if the current candidate has more votes
     elif candidate_dict[candidate][0] > candidate_dict[winner][0]:
         winner = candidate
 

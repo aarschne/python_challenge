@@ -4,7 +4,6 @@ import os
 #declare the path to the csv of bank values
 py_bank_csv_path = os.path.join(os.path.dirname(__file__), 'Resources', 'budget_data.csv')
 
-
 # Read in the CSV file
 with open(py_bank_csv_path, 'r') as csvfile:
 
